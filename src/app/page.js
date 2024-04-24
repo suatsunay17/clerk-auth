@@ -1,11 +1,7 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import Header from "@/components/Header/Header";
-
 export default function Home() {
   return (
-    <>
-    <h1>Hello</h1>
-    </>
-  )
+    <div className="flex justify-center">
+      <h1 className="text-emerald-600 text-5xl text-center mt-11">Hello, This is Home Page</h1>
+    </div>
+  );
 }

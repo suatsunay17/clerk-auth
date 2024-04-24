@@ -1,9 +1,9 @@
 import { SignUp } from "@clerk/nextjs";
-import "../../sign-in/[[...sign-in]]/signin.css";
 
 export default function Page() {
   return (
-    <div className="signin">
+    <div className="flex items-center justify-center flex-col gap-10">
+      <h1 className="text-4xl font-bold mt-10">Create Your Account</h1>
       <SignUp />;
     </div>
   );

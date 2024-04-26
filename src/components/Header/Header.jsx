@@ -7,14 +7,15 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuSubContent,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { useRouter } from "next/navigation";
 
 function Header() {
   const { isSignedIn, user, isLoaded } = useUser();
   const { signOut } = useClerk();
+  const router = useRouter();
 
   return (
     <nav className="p-3 bg-emerald-400">

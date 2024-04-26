@@ -40,7 +40,7 @@ function Header() {
             </div>
           ) : (
             <div>
-              <Link href={"/dashboard"} className="text-xl text-black hover:bg-emerald-50 p-2 rounded">
+              <Link href={"/dashboard"} >
                 {/* Dashboard */}
                 <DropdownMenu>
                   <DropdownMenuTrigger>

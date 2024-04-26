@@ -94,7 +94,7 @@ export default function Dashboard() {
 
   return (
     <div className="p-10  overflow-hidden flex flex-col flex-wrap">
-      <div className="flex justify-between items-center my-2">
+      <div className="flex justify-between items-center my-2 sm:flex-col lg:flex-row gap-2">
         <h1 className="font-bold text-4xl">Dashboard</h1>
         <p>
           Logged in as
@@ -104,21 +104,21 @@ export default function Dashboard() {
       </div>
       <div>
         <Tabs defaultValue="overview" className="rounded my-6 ">
-          <TabsList className="p-1 bg-slate-100 rounded">
+          <TabsList className="p-1 bg-slate-100 rounded sm:flex sm:items-center">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="reports">Reports</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="flex flex-col">
-            <div className="flex flex-wrap justify-between items-center">
+            <div className="flex flex-wrap justify-between items-center sm:flex-col sm:w-90 lg:flex-row">
               <Cards data={CardInfo} />
             </div>
-            <div className="flex flex-wrap justify-between gap-10">
+            <div className="flex flex-wrap justify-between gap-10 lg:flex-row lg:justify-center sm:flex-col sm:items-center">
               <Card className="w-fit p-4 rounded-xl my-4 items-center">
                 <Chart />
               </Card>
-              <Card className="w-fit p-4 rounded-xl my-4">
+              <Card className="w-fit p-4 rounded-xl my-4 ">
                 <RecentSales />
               </Card>
             </div>

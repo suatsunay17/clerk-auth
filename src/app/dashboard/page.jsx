@@ -17,6 +17,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import RecentSales from "@/components/RecentSales/RecentSales";
 import Cards from "@/components/Cards/Cards";
+import { Combobox } from "@/components/Combobox/Combobox";
+import { Separator } from "@/components/ui/separator";
+import { InputDemo } from "@/components/Input/Input";
+import { Avatar } from "@radix-ui/react-avatar";
+import { AvatarDemo } from "@/components/Avatar/Avatar";
+import { Button } from "@/components/ui/button";
 
 export function Chart() {
   const data = [
@@ -35,13 +41,13 @@ export function Chart() {
   ];
 
   return (
-      <BarChart width={840} height={400} data={data}>
-        <XAxis dataKey="name" stroke="#000" />
-        <YAxis />
-        <Tooltip />
-        <CartesianGrid stroke="#ccc" />
-        <Bar dataKey="sales" fill="#000" barSize={30} />
-      </BarChart>
+    <BarChart width={840} height={430} data={data}>
+      <XAxis dataKey="name" stroke="#000" />
+      <YAxis />
+      <Tooltip />
+      <CartesianGrid stroke="#ccc" />
+      <Bar dataKey="sales" fill="#000" barSize={30} />
+    </BarChart>
   );
 }
 
@@ -95,14 +101,41 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="p-10  overflow-hidden flex flex-col flex-wrap">
+    <div className="p-10 m-4 overflow-hidden flex flex-col flex-wrap border rounded border-gray-300">
+      <div className="flex items-center justify-between">
+        <div className="flex">
+          <Combobox />
+          <ul className="flex flex-row items-center gap-2 justify-around mx-4">
+            <li className="text-gray-500 text-sm">
+              <button>Overview</button>
+            </li>
+            <li className="text-gray-500 text-sm">
+              <button>Customers</button>
+            </li>
+            <li className="text-gray-500 text-sm">
+              <button>Products</button>
+            </li>
+            <li className="text-gray-500 text-sm">
+              <button>Settings</button>
+            </li>
+          </ul>
+        </div>
+        <div className="flex gap-3 items-center">
+          <InputDemo />
+          <AvatarDemo />
+        </div>
+      </div>
+      <Separator className="bg-gray-300 w-full my-3" />
       <div className="flex justify-between items-center my-2 sm:flex-col lg:flex-row gap-2">
         <h1 className="font-bold text-4xl">Dashboard</h1>
         <p>
           Logged in as
           <span className="font-semibold"> {user.fullName}</span>
         </p>
-        <DatePickerWithRange />
+        <div className="flex gap-2">
+          <DatePickerWithRange />
+          <Button className="bg-black text-white rounded">Download</Button>
+        </div>
       </div>
       <div>
         <Tabs defaultValue="overview" className="rounded my-6 ">
@@ -118,7 +151,7 @@ export default function Dashboard() {
             </div>
             <div className="flex flex-wrap justify-between gap-10 lg:flex-row lg:justify-center sm:flex-col sm:items-center">
               <Card className="w-fit p-4 rounded-xl my-4 items-center lg:w-fit ">
-                <Chart className="" />
+                <Chart />
               </Card>
               <Card className="w-fit p-4 rounded-xl my-4 ">
                 <RecentSales />

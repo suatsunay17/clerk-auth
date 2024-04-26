@@ -104,7 +104,7 @@ export default function Dashboard() {
       </div>
       <div>
         <Tabs defaultValue="overview" className="rounded my-6 ">
-          <TabsList className="p-1 bg-slate-100 rounded sm:flex sm:items-center">
+          <TabsList className="p-1 bg-slate-100 rounded lg:block lg:w-fit sm:flex sm:items-center">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="reports">Reports</TabsTrigger>

@@ -16,6 +16,8 @@ import { useUser } from "@clerk/clerk-react";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
+import RecentSales from "@/components/RecentSales/RecentSales";
+import Cards from "@/components/Cards/Cards";
 
 export function Chart() {
   const data = [
@@ -34,7 +36,7 @@ export function Chart() {
   ];
 
   return (
-    <BarChart width={900} height={300} data={data}>
+    <BarChart width={840} height={400} data={data}>
       <XAxis dataKey="name" stroke="#000" />
       <YAxis />
       <Tooltip />
@@ -88,7 +90,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="p-6  overflow-hidden">
+    <div className="p-10  overflow-hidden flex flex-col flex-wrap">
       <div className="flex justify-between items-center my-2">
         <h1 className="font-bold text-4xl">Dashboard</h1>
         <p>
@@ -98,36 +100,26 @@ export default function Dashboard() {
         <DatePickerWithRange />
       </div>
       <div>
-        <Tabs defaultValue="overview" className="w-[400px] rounded my-6 ">
+        <Tabs defaultValue="overview" className="rounded my-6 ">
           <TabsList className="p-1 bg-slate-100 rounded">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="reports">Reports</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
           </TabsList>
-          <TabsContent value="overview" className="flex-col w-fit">
-            <div className="flex gap-10">
-              {Object.entries(CardInfo).map(
-                ([key, { title, value, stat, icon }]) => (
-                  <Card key={key} className="rounded-xl shadow-md w-80 p-7">
-                    <div className="flex justify-between">
-                      <h5 className="font-semibold text-sm">{title}</h5>
-                      <FontAwesomeIcon
-                        icon={icon}
-                        className="text-gray-500 text-xl"
-                      />
-                    </div>
-                    <p className="my-2.5 font-bold text-3xl">{value}</p>
-                    <p className="text-xs text-gray-500">{stat}</p>
-                  </Card>
-                )
-              )}
+          <TabsContent value="overview" className="flex flex-col">
+            <div className="flex flex-wrap justify-between items-center">
+              <Cards data={CardInfo} />
             </div>
-            <Card className="w-fit p-4 rounded-xl my-4">
-              <Chart className="w-400" />
-            </Card>
+            <div className="flex flex-wrap justify-between gap-10">
+              <Card className="w-fit p-4 rounded-xl my-4 items-center">
+                <Chart />
+              </Card>
+              <Card className="w-fit p-4 rounded-xl my-4">
+                <RecentSales />
+              </Card>
+            </div>
           </TabsContent>
-          <TabsContent value="password">Change your password here.</TabsContent>
         </Tabs>
       </div>
     </div>

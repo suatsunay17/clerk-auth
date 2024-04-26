@@ -18,29 +18,29 @@ function Header() {
   const router = useRouter();
 
   return (
-    <nav className="p-3 bg-emerald-400">
+    <nav className="p-2 bg-emerald-400">
       <ul className="flex justify-between items-center">
         <div className="left flex gap-10">
-          <Link href={"/"} className="text-xl text-emerald-50">
+          <Link href={"/"} className="text-xl text-black hover:bg-emerald-50 p-2 rounded">
             Home
           </Link>
-          <Link href={"/contact"} className="text-xl text-emerald-50">
+          <Link href={"/contact"} className="text-xl text-black hover:bg-emerald-50 p-2 rounded">
             Contact
           </Link>
         </div>
         <div>
           {!isSignedIn ? (
             <div className="right flex justify-between gap-10">
-              <Link href={"/sign-in"} className="text-xl text-emerald-50">
+              <Link href={"/sign-in"} className="text-xl text-black hover:bg-emerald-50 p-2 rounded">
                 Login
               </Link>
-              <Link href={"/sign-up"} className="text-xl text-emerald-50">
+              <Link href={"/sign-up"} className="text-xl text-black hover:bg-emerald-50 p-2 rounded">
                 Register
               </Link>
             </div>
           ) : (
             <div>
-              <Link href={"/dashboard"} className="text-xl text-emerald-50">
+              <Link href={"/dashboard"} className="text-xl text-black hover:bg-emerald-50 p-2 rounded">
                 {/* Dashboard */}
                 <DropdownMenu>
                   <DropdownMenuTrigger>

@@ -12,9 +12,8 @@ import {
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 import { DatePickerWithRange } from "@/components/date-picker";
-import { useUser, useClerk } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 
@@ -47,8 +46,6 @@ export function Chart() {
 
 export default function Dashboard() {
   const { isSignedIn, user, isLoaded } = useUser();
-  const { signOut } = useClerk();
-  const router = useRouter();
 
   if (!isLoaded) {
     return null;
@@ -96,7 +93,7 @@ export default function Dashboard() {
         <h1 className="font-bold text-4xl">Dashboard</h1>
         <p>
           Logged in as
-          <span className="font-semibold">{user.fullName}</span>
+          <span className="font-semibold"> {user.fullName}</span>
         </p>
         <DatePickerWithRange />
       </div>

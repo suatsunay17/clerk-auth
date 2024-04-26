@@ -117,8 +117,8 @@ export default function Dashboard() {
               <Cards data={CardInfo} />
             </div>
             <div className="flex flex-wrap justify-between gap-10 lg:flex-row lg:justify-center sm:flex-col sm:items-center">
-              <Card className="w-fit p-4 rounded-xl my-4 items-center lg:w-fit sm:w-1/2">
-                <Chart className="sm:w-1/2" />
+              <Card className="w-fit p-4 rounded-xl my-4 items-center lg:w-fit ">
+                <Chart className="" />
               </Card>
               <Card className="w-fit p-4 rounded-xl my-4 ">
                 <RecentSales />

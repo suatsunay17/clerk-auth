@@ -54,9 +54,13 @@ export default function Dashboard() {
 
   if (!isSignedIn) {
     return (
-      <div>
-        <p>You have to sign in to use this page!</p>
-        <Link href="/sign-in">Sign In</Link>
+      <div className="flex flex-col items-center my-40">
+        <h1 className="font-extrabold text-3xl ">
+          You have to sign in to use this page!
+        </h1>
+        <Link href="/sign-in">
+          <button className="my-6 bg-emerald-200 p-4 text-xl  font-bold rounded">Sign In</button>
+        </Link>
       </div>
     );
   }

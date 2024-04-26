@@ -1,13 +1,24 @@
 "use client";
 import Link from "next/link";
-import { useUser } from "@clerk/clerk-react";
+import { useUser, useClerk } from "@clerk/clerk-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSubContent,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 function Header() {
   const { isSignedIn, user, isLoaded } = useUser();
+  const { signOut } = useClerk();
 
   return (
     <nav className="p-3 bg-emerald-400">
-      <ul className="flex justify-between ">
+      <ul className="flex justify-between items-center">
         <div className="left flex gap-10">
           <Link href={"/"} className="text-xl text-emerald-50">
             Home
@@ -29,7 +40,30 @@ function Header() {
           ) : (
             <div>
               <Link href={"/dashboard"} className="text-xl text-emerald-50">
-                Dashboard
+                {/* Dashboard */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Avatar>
+                      <AvatarImage src="https://github.com/shadcn.png" />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-slate-50">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Link href={"/dashboard"}>Dashboard</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <button
+                        onClick={() => signOut(() => router.push("/"))}
+                        className="font-bold py-1"
+                      >
+                        Sign Out
+                      </button>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </Link>
             </div>
           )}

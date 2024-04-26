@@ -16,14 +16,7 @@ import { useUser, useClerk } from "@clerk/clerk-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 export function Chart() {
   const data = [
@@ -42,13 +35,13 @@ export function Chart() {
   ];
 
   return (
-      <BarChart width={900} height={300} data={data}>
-        <XAxis dataKey="name" stroke="#000" />
-        <YAxis />
-        <Tooltip />
-        <CartesianGrid stroke="#ccc" />
-        <Bar dataKey="sales" fill="#000" barSize={30} />
-      </BarChart>
+    <BarChart width={900} height={300} data={data}>
+      <XAxis dataKey="name" stroke="#000" />
+      <YAxis />
+      <Tooltip />
+      <CartesianGrid stroke="#ccc" />
+      <Bar dataKey="sales" fill="#000" barSize={30} />
+    </BarChart>
   );
 }
 
@@ -102,7 +95,8 @@ export default function Dashboard() {
       <div className="flex justify-between items-center my-2">
         <h1 className="font-bold text-4xl">Dashboard</h1>
         <p>
-          Logged in as <span className="font-semibold">{user.fullName}</span>
+          Logged in as
+          <span className="font-semibold">{user.fullName}</span>
         </p>
         <DatePickerWithRange />
       </div>

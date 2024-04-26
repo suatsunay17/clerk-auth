@@ -106,18 +106,22 @@ export default function Dashboard() {
         <div className="flex">
           <Combobox />
           <ul className="flex flex-row items-center gap-2 justify-around mx-4">
-            <li className="text-gray-500 text-sm">
-              <button>Overview</button>
-            </li>
-            <li className="text-gray-500 text-sm">
-              <button>Customers</button>
-            </li>
-            <li className="text-gray-500 text-sm">
-              <button>Products</button>
-            </li>
-            <li className="text-gray-500 text-sm">
-              <button>Settings</button>
-            </li>
+            <Tabs defaultValue="overview">
+              <TabsList>
+                <TabsTrigger className="text-gray-400" value="overview">
+                  Overview
+                </TabsTrigger>
+                <TabsTrigger className="text-gray-400" value="analytics">
+                  Customers
+                </TabsTrigger>
+                <TabsTrigger className="text-gray-400" value="reports">
+                  Products
+                </TabsTrigger>
+                <TabsTrigger className="text-gray-400" value="notifications">
+                  Settings
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
           </ul>
         </div>
         <div className="flex gap-3 items-center">
